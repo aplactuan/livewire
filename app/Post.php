@@ -5,7 +5,7 @@ namespace App;
 use App\User;
 use Illuminate\Database\Eloquent\Model;
 
-class Posts extends Model
+class Post extends Model
 {
     protected $fillable = [
         'body'

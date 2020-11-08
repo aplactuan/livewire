@@ -2,7 +2,7 @@
 
 namespace App\Http\Livewire;
 
-use App\Posts;
+use App\Post;
 use Livewire\Component;
 
 class PostIndex extends Component
@@ -20,7 +20,7 @@ class PostIndex extends Component
 
     public function mount()
     {
-        $this->posts = Posts::latest()->get();
+        $this->posts = Post::latest()->get();
     }
 
     public function render()
