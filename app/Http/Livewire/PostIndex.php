@@ -8,18 +8,15 @@ use Livewire\WithPagination;
 
 class PostIndex extends Component
 {
+    use WithPagination;
+
     protected $listeners = [
       'postAdded'
     ];
 
     public function postAdded($postId)
     {
-        #$this->posts->prepend(Post::find($postId));
-    }
-
-    public function mount()
-    {
-
+        session()->flash('message', 'Your post is added');
     }
 
     public function render()
