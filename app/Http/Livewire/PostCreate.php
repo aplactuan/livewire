@@ -10,6 +10,10 @@ class PostCreate extends Component
 
     public function addPost()
     {
+        $this->validate([
+            'body'  => 'required'
+        ]);
+
        $post = auth()->user()->posts()->create([
           'body'    => $this->body
        ]);
