@@ -4,10 +4,11 @@ namespace App\Http\Livewire;
 
 use App\Post;
 use Livewire\Component;
+use Livewire\WithPagination;
 
 class PostIndex extends Component
 {
-    public $posts;
+    use WithPagination;
 
     protected $listeners = [
       'postAdded'
@@ -20,11 +21,13 @@ class PostIndex extends Component
 
     public function mount()
     {
-        $this->posts = Post::latest()->get();
+
     }
 
     public function render()
     {
-        return view('livewire.post-index');
+        return view('livewire.post-index', [
+            'posts' => Post::latest()->paginate(3)
+        ]);
     }
 }
